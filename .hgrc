@@ -1,0 +1,38 @@
+[ui]
+username = Daniel Machado <daniel.machado@mediasq.com>
+
+[extensions]
+color=
+fetch=
+hgk=
+graphlog=
+rebase=
+progress=
+mq=
+purge=
+shelve=
+hgext.extdiff =
+
+[tortoisehg]
+
+[ui]
+ssh = ssh -C
+ignore = ~/.hgignore
+
+[extensions]
+hgext.extdiff=
+prompt=~/.hg-extensions/prompt.py
+
+[extdiff]
+cmd.kdiff = kdiff3
+
+
+[annotate]
+ignorews = True
+ignorewsamount = True
+ignoreblanklines = True
+
+[diff]
+ignorews = True
+ignorewsamount = True
+ignoreblanklines = True
