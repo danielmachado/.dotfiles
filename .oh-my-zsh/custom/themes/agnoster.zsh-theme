@@ -123,26 +123,27 @@ prompt_git() {
 prompt_hg() {
   (( $+commands[hg] )) || return
   if $(hg id &> /dev/null 2>&1); then
-    if [[ $(hg st | wc -l) -gt 0 ]]; then
-      # if any modification
+    # if [[ $(hg st | wc -l) -gt 0 ]]; then
+    #   # if any modification
       prompt_segment yellow black
-      st='±'
-    else
-      # if working copy is clean
-      prompt_segment green black
-    fi
+    #   st='±'
+    # else
+    #   # if working copy is clean
+    #   prompt_segment green black
+    # fi
 
-    if $(cat .hg/bookmarks.current &> /dev/null 2>&1); then
-      bookmark=$(cat .hg/bookmarks.current)
-    else
-      bookmark=$(hg prompt "{rev}")
-    fi
+    # if [[ -f .hg/bookmarks.current ]]; then
+    #   branch=$(hg branch)@$(cat .hg/bookmarks.current)
+    # else
+    #   branch=$(hg branch)@$(hg parent | awk '{print $2}' | head -n1 | grep -oP '[0-9]*:' | grep -oP '[0-9]*')
+    # fi
 
-    if $(hg heads | grep @default &> /dev/null 2>&1); then
-      defaults='@'
-    fi
+    # if $(hg heads | grep @default &> /dev/null 2>&1); then
+    #   defaults='@'
+    # fi
 
-    echo -n $(hg prompt "☿ {branch}@$bookmark") $st $defaults
+    # echo -n $(hg prompt "☿ {branch}{@{bookmark}}") $st $defaults
+    echo -n $(hg prompt "☿ {branch}{@{bookmark}}")
   fi
 }
 
